@@ -18,7 +18,7 @@ namespace SampleOutlook.Moudles.Mail.Menu
     /// <summary>
     /// Interaction logic for MailGroup.xaml
     /// </summary>
-    public partial class MailGroup : UserControl
+    public partial class MailGroup : TabItem
     {
         public MailGroup()
         {
