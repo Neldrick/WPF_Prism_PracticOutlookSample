@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleOutlook.Modules.Conta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleOutlook.Modules.Calendar", "Modules\SampleOutlook.Modules.Calendar\SampleOutlook.Modules.Calendar.csproj", "{F32BF95F-807F-4F47-9DDA-6DD4AB81D6D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleOutlook.Business", "SampleOutlook.Business\SampleOutlook.Business.csproj", "{DF191810-0FDB-4AAE-8668-DC960BF170D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleOutlook.Business", "SampleOutlook.Business\SampleOutlook.Business.csproj", "{DF191810-0FDB-4AAE-8668-DC960BF170D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

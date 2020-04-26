@@ -2,13 +2,19 @@
     x:Class="SampleOutlook.Moudles.Mail.Menu.MailGroup"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:local="clr-namespace:SampleOutlook.Moudles.Mail.Menu"
     xmlns:ViewModel="clr-namespace:SampleOutlook.Moudles.Mail.ViewModels"
     xmlns:prism="http://prismlibrary.com/"
     prism:ViewModelLocator.AutoWireViewModel="True"
     Header="General">
     <Grid>
-        <TreeView Name="trvMenu" ItemsSource="{Binding Items}">
+        <TreeView x:Name="_dataTree" ItemsSource="{Binding Items}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectedItemChanged">
+                    <prism:InvokeCommandAction Command="{Binding SelectedCommand}" TriggerParameterPath="NewValue"/>
+                </i:EventTrigger>
+           </i:Interaction.Triggers>
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate DataType="{x:Type ViewModel:MailGroupViewModel}" ItemsSource="{Binding Items}">
                     <TextBlock Text="{Binding Caption}" />

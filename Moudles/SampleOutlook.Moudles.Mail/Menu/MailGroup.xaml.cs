@@ -1,4 +1,5 @@
-﻿using SampleOutlook.Core;
+﻿using SampleOutlook.Business;
+using SampleOutlook.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,18 @@ namespace SampleOutlook.Moudles.Mail.Menu
             InitializeComponent();
         }
 
-        public string DefaultNavigationPath => "MailList";
+        public string DefaultNavigationPath
+        {
+            get
+            {
+                var item = _dataTree.SelectedItem;
+                if(item != null)
+                {
+                    return ((NavigationItem)item).NavigationPath;
+                }
+                return "MailList";
+            }
+            
+        }
     }
 }
