@@ -19,7 +19,8 @@
             <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.RibbonRegion}"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="0" BorderThickness="0 0 1 0" BorderBrush="Black">
-            <TabControl TabStripPlacement="Left" prism:RegionManager.RegionName="{x:Static core:RegionNames.OutlookGroupRegion}">
+            <TabControl TabStripPlacement="Left" prism:RegionManager.RegionName="{x:Static core:RegionNames.OutlookGroupRegion}"
+                        SelectionChanged="TabControl_SelectionChanged">
             </TabControl>
         </Border>
         <ContentControl Grid.Row="1"  Grid.Column="1" Grid.ColumnSpan="2"  prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />

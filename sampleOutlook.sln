@@ -7,13 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{6624
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleOutlook", "SampleOutlook\SampleOutlook.csproj", "{2C188A5E-C8DE-4622-8DA7-286A8395CF55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleOutlook.Core", "SampleOutlook.Core\SampleOutlook.Core.csproj", "{E9287CC6-2D11-4B66-89B4-427C7FF9EDD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleOutlook.Core", "SampleOutlook.Core\SampleOutlook.Core.csproj", "{E9287CC6-2D11-4B66-89B4-427C7FF9EDD8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleOutlook.Moudles.Mail", "Moudles\SampleOutlook.Moudles.Mail\SampleOutlook.Moudles.Mail.csproj", "{364BEB83-B899-4108-BCFA-7C081BB1D0E2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleOutlook.Modules.Contacts", "Modules\SampleOutlook.Modules.Contacts\SampleOutlook.Modules.Contacts.csproj", "{0E708E09-4A76-4C0F-9033-844CFC70BD74}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleOutlook.Modules.Calendar", "Modules\SampleOutlook.Modules.Calendar\SampleOutlook.Modules.Calendar.csproj", "{F32BF95F-807F-4F47-9DDA-6DD4AB81D6D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleOutlook.Business", "SampleOutlook.Business\SampleOutlook.Business.csproj", "{DF191810-0FDB-4AAE-8668-DC960BF170D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +87,18 @@ Global
 		{F32BF95F-807F-4F47-9DDA-6DD4AB81D6D9}.Release|x64.Build.0 = Release|Any CPU
 		{F32BF95F-807F-4F47-9DDA-6DD4AB81D6D9}.Release|x86.ActiveCfg = Release|Any CPU
 		{F32BF95F-807F-4F47-9DDA-6DD4AB81D6D9}.Release|x86.Build.0 = Release|Any CPU
+		{DF191810-0FDB-4AAE-8668-DC960BF170D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF191810-0FDB-4AAE-8668-DC960BF170D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF191810-0FDB-4AAE-8668-DC960BF170D2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DF191810-0FDB-4AAE-8668-DC960BF170D2}.Debug|x64.Build.0 = Debug|Any CPU
+		{DF191810-0FDB-4AAE-8668-DC960BF170D2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DF191810-0FDB-4AAE-8668-DC960BF170D2}.Debug|x86.Build.0 = Debug|Any CPU
+		{DF191810-0FDB-4AAE-8668-DC960BF170D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF191810-0FDB-4AAE-8668-DC960BF170D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF191810-0FDB-4AAE-8668-DC960BF170D2}.Release|x64.ActiveCfg = Release|Any CPU
+		{DF191810-0FDB-4AAE-8668-DC960BF170D2}.Release|x64.Build.0 = Release|Any CPU
+		{DF191810-0FDB-4AAE-8668-DC960BF170D2}.Release|x86.ActiveCfg = Release|Any CPU
+		{DF191810-0FDB-4AAE-8668-DC960BF170D2}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

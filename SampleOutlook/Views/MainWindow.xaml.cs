@@ -1,4 +1,8 @@
-﻿using System.Windows;
+﻿using Prism.Regions;
+using SampleOutlook.Core;
+using System.Diagnostics;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace SampleOutlook.Views
 {
@@ -7,9 +11,24 @@ namespace SampleOutlook.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly IRegionManager _regionManager;
+
+        public MainWindow(IRegionManager regionManager)
         {
             InitializeComponent();
+            _regionManager = regionManager;
+        }
+
+        private void TabControl_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (e.Source is TabControl)
+            {
+                var group = ((TabControl)sender).Items[((TabControl)sender).SelectedIndex] as IOutlookBarGroup;
+                if(group != null)
+                {
+                    _regionManager.RequestNavigate(RegionNames.ContentRegion, group.DefaultNavigationPath);
+                }
+            }
         }
     }
 }

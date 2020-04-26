@@ -1,4 +1,8 @@
-﻿using Prism.Mvvm;
+﻿using Prism.Commands;
+using Prism.Mvvm;
+using Prism.Regions;
+using SampleOutlook.Core;
+using System;
 
 namespace SampleOutlook.ViewModels
 {
@@ -11,9 +15,25 @@ namespace SampleOutlook.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        public MainWindowViewModel()
-        {
+        private DelegateCommand<string> _navigateCommand;
+        private readonly IRegionManager _regionManager;
 
+        public DelegateCommand<string> NavigateCommand =>
+            _navigateCommand ?? (_navigateCommand = new DelegateCommand<string>(ExecuteNavigateCommand));
+
+
+        public MainWindowViewModel(IRegionManager regionManager)
+        {
+            _regionManager = regionManager;
         }
+        void ExecuteNavigateCommand(string navigationPath)
+        {
+            if (string.IsNullOrEmpty(navigationPath))
+            {
+                throw new ArgumentException();
+            }
+            _regionManager.RequestNavigate(RegionNames.ContentRegion, navigationPath);
+        }
+
     }
 }

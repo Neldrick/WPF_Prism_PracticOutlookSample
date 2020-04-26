@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SampleOutlook.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,13 @@ namespace SampleOutlook.Moudles.Mail.Menu
     /// <summary>
     /// Interaction logic for MailGroup.xaml
     /// </summary>
-    public partial class MailGroup : TabItem
+    public partial class MailGroup : TabItem, IOutlookBarGroup
     {
         public MailGroup()
         {
             InitializeComponent();
         }
+
+        public string DefaultNavigationPath => "MailList";
     }
 }

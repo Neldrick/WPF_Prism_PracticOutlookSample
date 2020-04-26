@@ -82,8 +82,13 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Compile Include="ViewModels\MailGroupViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SampleOutlook.Business\SampleOutlook.Business.csproj">
+      <Project>{DF191810-0FDB-4AAE-8668-DC960BF170D2}</Project>
+      <Name>SampleOutlook.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\SampleOutlook.Core\SampleOutlook.Core.csproj">
       <Project>{E9287CC6-2D11-4B66-89B4-427C7FF9EDD8}</Project>
       <Name>SampleOutlook.Core</Name>
