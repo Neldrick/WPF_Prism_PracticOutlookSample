@@ -5,6 +5,7 @@ using System.Windows;
 using Prism.Regions;
 using SampleOutlook.Moudles.Mail;
 using SampleOutlook.Modules.Contacts;
+using SampleOutlook.Core;
 
 namespace SampleOutlook
 {
@@ -20,7 +21,7 @@ namespace SampleOutlook
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterSingleton<IApplicationCommands, ApplicationCommands>();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

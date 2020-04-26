@@ -11,12 +11,12 @@ namespace SampleOutlook.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly IRegionManager _regionManager;
+        private readonly IApplicationCommands _applicationCommands;
 
-        public MainWindow(IRegionManager regionManager)
+        public MainWindow(IApplicationCommands applicationCommands)
         {
             InitializeComponent();
-            _regionManager = regionManager;
+            _applicationCommands = applicationCommands;
         }
 
         private void TabControl_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -26,7 +26,7 @@ namespace SampleOutlook.Views
                 var group = ((TabControl)sender).Items[((TabControl)sender).SelectedIndex] as IOutlookBarGroup;
                 if(group != null)
                 {
-                    _regionManager.RequestNavigate(RegionNames.ContentRegion, group.DefaultNavigationPath);
+                    _applicationCommands.NavigateCommand.Execute(group.DefaultNavigationPath);
                 }
             }
         }
