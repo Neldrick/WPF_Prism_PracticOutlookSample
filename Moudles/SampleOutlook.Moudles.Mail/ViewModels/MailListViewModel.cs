@@ -1,13 +1,14 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
+using SampleOutlook.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace SampleOutlook.Moudles.Mail.ViewModels
 {
-    public class MailListViewModel : BindableBase, INavigationAware
+    public class MailListViewModel : ViewModelBase
     {
         private string _title;
         public string Title
@@ -20,17 +21,7 @@ namespace SampleOutlook.Moudles.Mail.ViewModels
 
         }
 
-        public bool IsNavigationTarget(NavigationContext navigationContext)
-        {
-            return true;
-        }
-
-        public void OnNavigatedFrom(NavigationContext navigationContext)
-        {
-
-        }
-
-        public void OnNavigatedTo(NavigationContext navigationContext)
+        public override void OnNavigatedTo(NavigationContext navigationContext)
         {
             Title = navigationContext.Parameters.GetValue<string>("id");
         }

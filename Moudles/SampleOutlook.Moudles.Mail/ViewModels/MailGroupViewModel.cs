@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SampleOutlook.Moudles.Mail.ViewModels
 {
-    public class MailGroupViewModel: BindableBase
+    public class MailGroupViewModel: ViewModelBase
     {
         private string _title = "HEEEE testing";
         public string Title
