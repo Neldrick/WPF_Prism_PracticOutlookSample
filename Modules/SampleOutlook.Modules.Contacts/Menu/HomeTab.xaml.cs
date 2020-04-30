@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SampleOutlook.Moudles.Mail.Menu
+namespace SampleOutlook.Modules.Contacts.Menu
 {
     /// <summary>
     /// Interaction logic for HomeTab.xaml
