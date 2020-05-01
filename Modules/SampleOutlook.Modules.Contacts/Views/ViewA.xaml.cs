@@ -1,4 +1,5 @@
 ﻿using SampleOutlook.Core;
+using SampleOutlook.Modules.Contacts.Menu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace SampleOutlook.Modules.Contacts.Views
     /// <summary>
     /// Interaction logic for ViewA.xaml
     /// </summary>
+    [DependentViewAttribute(typeof(HomeTab),RegionNames.RibbonRegion)]
     public partial class ViewA : UserControl
     {
         public ViewA()
