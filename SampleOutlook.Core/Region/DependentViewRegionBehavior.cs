@@ -50,6 +50,10 @@ namespace SampleOutlook.Core.Region
                         {
                             var info = new DependentViewInfo(att, _container);
 
+                            if(info.View is ISupportDataContext infoDC && view is ISupportDataContext viewDC)
+                            {
+                                infoDC.DataContext = viewDC.DataContext;
+                            }
                             dependentViews.Add(info);
                         }
                         _dependentViewCache.Add(view, dependentViews);

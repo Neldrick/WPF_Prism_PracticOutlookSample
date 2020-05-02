@@ -6,9 +6,9 @@ namespace SampleOutlook.Moudles.Mail.Views
 {
     /// <summary>
     /// Interaction logic for MailList
-    /// </summary>
+    /// </summary>s
     [DependentViewAttribute(typeof(HomeTab),RegionNames.RibbonRegion)]
-    public partial class MailList : UserControl
+    public partial class MailList : UserControl, ISupportDataContext
     {
         public MailList()
         {

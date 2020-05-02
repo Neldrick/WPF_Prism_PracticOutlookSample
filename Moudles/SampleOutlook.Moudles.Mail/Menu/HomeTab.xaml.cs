@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SampleOutlook.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace SampleOutlook.Moudles.Mail.Menu
     /// <summary>
     /// Interaction logic for HomeTab.xaml
     /// </summary>
-    public partial class HomeTab : TabItem
+    public partial class HomeTab : TabItem, ISupportDataContext
     {
         public HomeTab()
         {
