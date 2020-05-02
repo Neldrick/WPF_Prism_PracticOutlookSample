@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace SampleOutlook.Core.Region
 {
@@ -53,13 +54,20 @@ namespace SampleOutlook.Core.Region
                             if(info.View is ISupportDataContext infoDC && view is ISupportDataContext viewDC)
                             {
                                 infoDC.DataContext = viewDC.DataContext;
-                            }
+                            }                            
                             dependentViews.Add(info);
-                        }
+                        }                       
                         _dependentViewCache.Add(view, dependentViews);
                     }
 
-                    dependentViews.ForEach(x => Region.RegionManager.Regions[x.Region].Add(x.View));
+                    dependentViews.ForEach(x =>
+                    {
+                        if (x.View is TabItem tabView)
+                        {
+                            tabView.IsSelected = true;
+                        }
+                        Region.RegionManager.Regions[x.Region].Add(x.View);
+                    });
                 }
 
             }

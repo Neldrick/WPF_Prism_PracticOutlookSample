@@ -4,7 +4,7 @@
         xmlns:prism="http://prismlibrary.com/"
         xmlns:core="clr-namespace:SampleOutlook.Core;assembly=SampleOutlook.Core"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title}" Height="350" Width="525">
+        Title="{Binding Title}" Height="450" Width="550">
     <Grid Width="Auto" Height="Auto">
         <Grid.RowDefinitions>
             <RowDefinition MinHeight="120"  MaxHeight="150" Height="*"/>
