@@ -6,6 +6,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SampleOutlook.Core.Region
 {
@@ -13,6 +14,8 @@ namespace SampleOutlook.Core.Region
     {
         public const string BehaviorKey = "DependentViewRegionBehavior";
         private readonly IContainerExtension _container;
+
+        Dictionary<object, List<DependentViewInfo>> _dependentViewCache = new Dictionary<object, List<DependentViewInfo>>();
 
         public DependentViewRegionBehavior(IContainerExtension container)
         {
@@ -29,17 +32,27 @@ namespace SampleOutlook.Core.Region
             {
                 foreach( var view in e.NewItems)
                 {
-                    var dependentViews = new List<DependentViewInfo>();
+                    List<DependentViewInfo> dependentViews = new List<DependentViewInfo>();
 
-                    // get the attributes
-                    var atts = GetCustomAttributes<DependentViewAttribute>(view.GetType());
-
-                    // foreach att we need to create the view find the region then inject the view into the region
-                    foreach(var att in atts)
+                    // check if view is already has dependents
+                    if (_dependentViewCache.ContainsKey(view))
                     {
-                        var info = new DependentViewInfo(att,_container);
+                        // reuse
+                        dependentViews = _dependentViewCache[view];
+                    }
+                    else
+                    {
+                        // get the attributes
+                        var atts = GetCustomAttributes<DependentViewAttribute>(view.GetType());
 
-                        dependentViews.Add(info);
+                        // foreach att we need to create the view find the region then inject the view into the region
+                        foreach (var att in atts)
+                        {
+                            var info = new DependentViewInfo(att, _container);
+
+                            dependentViews.Add(info);
+                        }
+                        _dependentViewCache.Add(view, dependentViews);
                     }
 
                     dependentViews.ForEach(x => Region.RegionManager.Regions[x.Region].Add(x.View));
@@ -48,8 +61,47 @@ namespace SampleOutlook.Core.Region
             }
             else if(e.Action == NotifyCollectionChangedAction.Remove)
             {
+                foreach (var oldView in e.OldItems)
+                {
+                    if (_dependentViewCache.ContainsKey(oldView))
+                    {
+                        var dependentViews = _dependentViewCache[oldView];
+                        dependentViews.ForEach(x => Region.RegionManager.Regions[x.Region].Remove(x.View));
 
+                        // if required to perm remove , remove from cache
+                        if (!ShouldKeepAlive(oldView))
+                        {
+                            _dependentViewCache.Remove(oldView);
+                        }
+                    }
+                }
             }
+        }
+
+        private bool ShouldKeepAlive(object oldView)
+        {
+            var regionLifetime = GetViewOrDataContextLifeTime(oldView);
+            if(regionLifetime != null)
+            {
+                return regionLifetime.KeepAlive;
+            }
+            
+            return true;
+        }
+
+        private IRegionMemberLifetime GetViewOrDataContextLifeTime(object view)
+        {
+            if(view is IRegionMemberLifetime regionMemberLifetime)
+            {
+                return regionMemberLifetime;
+            }
+
+            if(view is FrameworkElement frameworkElements)
+            {
+                return frameworkElements.DataContext as IRegionMemberLifetime;
+            }
+
+            return null;
         }
 
         private static IEnumerable<T> GetCustomAttributes<T>(Type type)
