@@ -4,6 +4,13 @@
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <Button Content="{Binding Title}" Command="{Binding TestCommand}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Grid.Column="0"/>
+        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+        <Grid Background="LightBlue" Grid.Column="2"></Grid>
     </Grid>
 </UserControl>

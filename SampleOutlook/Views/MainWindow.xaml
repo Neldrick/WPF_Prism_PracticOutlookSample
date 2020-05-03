@@ -12,10 +12,11 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="150"  Width="*"/>
+            <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" BorderThickness="0 0 0 1" BorderBrush="Black">
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="Black">
             <TabControl prism:RegionManager.RegionName="{x:Static core:RegionNames.RibbonRegion}"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="0" BorderThickness="0 0 1 0" BorderBrush="Black">
@@ -23,7 +24,8 @@
                         SelectionChanged="TabControl_SelectionChanged">
             </TabControl>
         </Border>
-        <ContentControl Grid.Row="1"  Grid.Column="1" Grid.ColumnSpan="2"  prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
+        <GridSplitter Grid.Row="1" Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+        <ContentControl Grid.Row="1"  Grid.Column="2" Grid.ColumnSpan="2"  prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
     </Grid>   
     
 </Window>
