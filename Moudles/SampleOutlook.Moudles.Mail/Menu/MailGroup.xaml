@@ -15,6 +15,11 @@
                     <prism:InvokeCommandAction Command="{Binding SelectedCommand}" TriggerParameterPath="NewValue"/>
                 </i:EventTrigger>
            </i:Interaction.Triggers>
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="TreeViewItem">
+                    <Setter Property="TreeViewItem.IsExpanded" Value="True"/>
+                </Style>
+            </TreeView.ItemContainerStyle>
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate DataType="{x:Type ViewModel:MailGroupViewModel}" ItemsSource="{Binding Items}">
                     <TextBlock Text="{Binding Caption}" />

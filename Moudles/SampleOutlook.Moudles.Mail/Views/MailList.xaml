@@ -9,8 +9,24 @@
             <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid Grid.Column="0"/>
+        <DataGrid Grid.Column="0" ItemsSource="{Binding Messages}" 
+                  AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" SelectedItem="{Binding SelectedMessage}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding From}" Header="From"/>
+                <DataGridTextColumn Binding="{Binding Subject}" Header="Subject"/>
+                <DataGridTextColumn Binding="{Binding DateSent , StringFormat=\{0:dd.MM.yy HH:mm:ss\}}" Header="DateSent"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
-        <Grid Background="LightBlue" Grid.Column="2"></Grid>
+        <!-- Mail Preview Area-->
+        <Grid Background="White" Grid.Column="2">
+            <StackPanel>
+                <TextBlock Margin="5" Text="{Binding SelectedMessage.From}"/>
+                <TextBlock Margin="5" Text="{Binding SelectedMessage.To}"/>
+                <TextBlock Margin="5" Text="{Binding SelectedMessage.CC}"/>
+                <TextBlock Margin="5" Text="{Binding SelectedMessage.Subject}"/>
+                <TextBlock Margin="5" Text="{Binding SelectedMessage.Body}"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

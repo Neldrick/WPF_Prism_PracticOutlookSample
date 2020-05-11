@@ -93,6 +93,14 @@
       <Project>{E9287CC6-2D11-4B66-89B4-427C7FF9EDD8}</Project>
       <Name>SampleOutlook.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\SampleOutlook.Services.Interfaces\SampleOutlook.Services.Interfaces.csproj">
+      <Project>{e7b3c361-94f8-46c4-9c6d-0d8e4ace89ee}</Project>
+      <Name>SampleOutlook.Services.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SampleOutlook.Services\SampleOutlook.Services.csproj">
+      <Project>{2F7D0E47-9FCA-402C-9245-4846D306F627}</Project>
+      <Name>SampleOutlook.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Menu\HomeTab.xaml">

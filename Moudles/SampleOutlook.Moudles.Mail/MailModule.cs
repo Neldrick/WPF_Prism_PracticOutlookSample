@@ -6,6 +6,8 @@ using SampleOutlook.Core;
 using SampleOutlook.Moudles.Mail.Menu;
 using Prism.Mvvm;
 using SampleOutlook.Moudles.Mail.ViewModels;
+using SampleOutlook.Services.Interfaces;
+using SampleOutlook.Services;
 
 namespace SampleOutlook.Moudles.Mail
 {
@@ -26,7 +28,10 @@ namespace SampleOutlook.Moudles.Mail
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             ViewModelLocationProvider.Register<MailGroup, MailGroupViewModel>();
+            
             containerRegistry.RegisterForNavigation<MailList, MailListViewModel>();
+
+            containerRegistry.RegisterSingleton<IMailServices, MailServices>();
         }
     }
 }

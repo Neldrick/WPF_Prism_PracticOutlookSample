@@ -23,7 +23,7 @@ namespace SampleOutlook.Moudles.Mail.Menu
                 {
                     return ((NavigationItem)item).NavigationPath;
                 }
-                return "MailList?id=Default";
+                return "MailList?Folder=Default";
             }
             
         }

@@ -49,11 +49,25 @@ namespace SampleOutlook.Moudles.Mail.ViewModels
 		private void GenerateMenu()
         {
             Items = new ObservableCollection<NavigationItem>();
-            var root = new NavigationItem(){Caption = "Personal Folder", NavigationPath="MailList?id=Default"};
-			root.Items.Add(new NavigationItem(){Caption ="Inbox", NavigationPath= "MailList?id=Inbox" });
-            root.Items.Add(new NavigationItem(){ Caption = "Delete", NavigationPath = "MailList?id=Delete" });
-            root.Items.Add(new NavigationItem(){ Caption = "Sent", NavigationPath = "MailList?id=Sent" });
+            var root = new NavigationItem(){Caption = "Personal Folder", NavigationPath="MailList?Folder=Default"};
+			root.Items.Add(new NavigationItem(){Caption = Properties.Resources.Folder_Inbox, NavigationPath= GetNavigationPath(FolderParameters.Inbox) });
+            root.Items.Add(new NavigationItem(){ Caption = Properties.Resources.Folder_Deleted, NavigationPath = GetNavigationPath(FolderParameters.Deleted) });
+            root.Items.Add(new NavigationItem(){ Caption = Properties.Resources.Folder_Sent, NavigationPath = GetNavigationPath(FolderParameters.Sent) });
             Items.Add(root);
         }
+
+        private string GetNavigationPath(string folder)
+        {
+            return $"MailList?{FolderParameters.FolderKey}={folder}";
+        }
+    }
+
+    public class FolderParameters 
+    {
+        public const string FolderKey = "Folder";
+
+        public const string Inbox = "Inbox";
+        public const string Sent = "Sent";
+        public const string Deleted = "Deleted";
     }
 }

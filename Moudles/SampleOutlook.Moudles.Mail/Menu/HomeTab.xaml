@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:SampleOutlook.Moudles.Mail.Menu"
              Header="Mail">
     <DockPanel LastChildFill="True">
-        <Button Name="Home" DockPanel.Dock="Left" Width="80" Content="{Binding Title}" Command="{Binding TestCommand}"/>
+        <Button Name="Home" DockPanel.Dock="Left" Width="80" Content="{Binding Title}"/>
         <Grid DockPanel.Dock="Right"/>
     </DockPanel>
 </TabItem>
