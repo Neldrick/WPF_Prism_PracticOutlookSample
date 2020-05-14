@@ -1,6 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
+using Prism.Services.Dialogs;
 using SampleOutlook.Business;
 using SampleOutlook.Core;
 using SampleOutlook.Services.Interfaces;
@@ -15,6 +16,7 @@ namespace SampleOutlook.Moudles.Mail.ViewModels
     {
         private ObservableCollection<MailMessage> _messages;
         private readonly IMailServices _mailServices;
+        private readonly IDialogService _dialogService;
 
         public ObservableCollection<MailMessage> Messages
         {
@@ -29,9 +31,18 @@ namespace SampleOutlook.Moudles.Mail.ViewModels
             set { SetProperty(ref _seelectedMessage, value); }
         }
 
-        public MailListViewModel(IMailServices mailServices)
+        private DelegateCommand<string> _messageCommand;
+        public DelegateCommand<string> MessageCommand =>
+            _messageCommand ?? (_messageCommand = new DelegateCommand<string>(ExecuteMessageCommand));
+
+        void ExecuteMessageCommand(string parameter)
+        {
+            _dialogService.ShowDialog("MessageView", null, null);
+        }
+        public MailListViewModel(IMailServices mailServices, IDialogService dialogService)
         {
             _mailServices = mailServices;
+            _dialogService = dialogService;
         }
 
         public override void OnNavigatedTo(NavigationContext navigationContext)

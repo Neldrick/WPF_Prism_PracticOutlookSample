@@ -32,6 +32,8 @@ namespace SampleOutlook.Moudles.Mail
             containerRegistry.RegisterForNavigation<MailList, MailListViewModel>();
 
             containerRegistry.RegisterSingleton<IMailServices, MailServices>();
+
+            containerRegistry.RegisterDialog<MessageView, MessageViewModel>();
         }
     }
 }
